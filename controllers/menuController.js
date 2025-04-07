@@ -4,7 +4,7 @@ const Restaurant = require('../models/restaurantModel');
 
 const createMenuItem = async (req, res) => {
     try {
-        const { restaurant, name, description, price, category } = req.body;
+        const { restaurant, name, description, price, category ,imageUrl } = req.body;
 
         // Check if the restaurant exists
         const restaurantExists = await Restaurant.findById(restaurant);
@@ -18,7 +18,8 @@ const createMenuItem = async (req, res) => {
             name,
             description,
             price,
-            category
+            category,
+            imageUrl
         });
 
         res.status(201).json(newMenuItem);
